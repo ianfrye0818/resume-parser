@@ -11,3 +11,7 @@ const storage = multer.diskStorage({
 });
 
 export const upload = multer({ storage: storage });
+
+export const isError = (error: any): error is Error => {
+  return error instanceof Error;
+};

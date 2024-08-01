@@ -1,5 +1,5 @@
 import express from 'express';
-import { upload } from '../middleware/multer.middleware';
+import { isError, upload } from '../middleware/multer.middleware';
 import { collectResumeText } from '../../utils';
 import { ResumeTools } from '../resume-tools';
 
@@ -29,6 +29,12 @@ router.post('/parse', upload.single('file'), async (req, res) => {
     return res.send(buf);
   } catch (error) {
     console.error(error);
+    if (isError(error) && error.message === 'Unsupported file type') {
+      return res.status(400).send('Unsupported file type');
+    }
+    if (isError(error) && error.message === 'Not a resume!') {
+      return res.status(400).send('Not a resume!');
+    }
     return res.status(500).send('Error parsing resume');
   }
 });
