@@ -1,0 +1,107 @@
+{
+  "name": "Ian Frye",
+  "summary": "Friendly and engaging team player with extensive experience in fullstack development technology and recruitment. Detail-oriented with a proven ability to create comprehensive documentation, develop and implement CRM improvements, and resolve complex technical issues. Adept at integrating staffing software with platforms like Indeed and LinkedIn to optimize recruitment processes. Demonstrates strong leadership and multitasking skills with a track record of placing high-value candidates and generating significant revenue.",
+  "skills": [
+    "JavaScript",
+    "TypeScript",
+    "Dart",
+    "Java",
+    "C",
+    "React",
+    "NextJS",
+    "NodeJS",
+    "Express",
+    "NestJS",
+    "Flutter",
+    "Angular",
+    "Postgres",
+    "MySQL",
+    "MongoDB",
+    "Prisma",
+    "TypeORM",
+    "DrizzleORM",
+    "Git",
+    "GitHub",
+    "Docker",
+    "VS Code",
+    "IntelliJ",
+    "Network Administration",
+    "TCP/IP",
+    "VPN",
+    "Computer System Integration",
+    "Rest API",
+    "Object Oriented Programming (OOP)"
+  ],
+  "education": [
+    {
+      "school": "Forsyth TECHNICAL community college",
+      "degree": "Associates in science computer programming"
+    }
+  ],
+  "workHistory": [
+    {
+      "company": "Upwork",
+      "location": null,
+      "startDate": "01/2024",
+      "endDate": "Present",
+      "title": "Freelance Full Stack Developer",
+      "duties": [
+        "Proficient in frontend and backend web development technologies including React, Next.js, Node.js, Express and Nest.js to deliver exceptional results that exceed client and user expectations.",
+        "Utilize platforms like WordPress, Shopify, Wix and other CMS solutions to create seamless and engaging experiences for clients and users alike.",
+        "Skilled at leveraging third-party APIs for seamless integration of services including social media OAuth logins, payment gateways such as Stripe and Plaid, and robust analytics tools enhancing the functionality and usability of web projects.",
+        "Expertise in using version control systems like Git and GitHub to facilitate smooth collaboration with teams and clients throughout the project lifecycle ensuring efficient project management and code deployment processes."
+      ]
+    },
+    {
+      "company": "The resource",
+      "location": null,
+      "startDate": "07/2022",
+      "endDate": "Present",
+      "title": "Technology Recruiting and Process Specialist",
+      "duties": [
+        "Create comprehensive documentation including training material as well as contributed to an overhaul of the recruiting process in our CRM.",
+        "Create and test solutions for staffing software with integrations with Indeed and LinkedIn to get the best technologies for the best value.",
+        "Develop and solve technology issues within the company including but not limited to VOIP networking, computer system integration, CRM improvements.",
+        "Contributed to the implementation of Bullhorn Staffing system within the company.",
+        "Serve as a direct hire recruiter placing candidates bringing in over 100,000 in revenue for the company per year."
+      ]
+    },
+    {
+      "company": "Spectrum",
+      "location": null,
+      "startDate": "09/2021",
+      "endDate": "07/2022",
+      "title": "Low Voltage Technician",
+      "duties": [
+        "Achieved less than 5% repeat rate within my first 3 months of employment.",
+        "Averaged over 95% productivity - highest on my team of 10 technicians.",
+        "Completed NCTI Broadband Certified Technician within 6 months of hire."
+      ]
+    },
+    {
+      "company": "Sheetz",
+      "location": null,
+      "startDate": "09/2020",
+      "endDate": "09/2021",
+      "title": "Equipment Service Technician",
+      "duties": [
+        "Troubleshoot equipment including but not limited to HVAC, Gas and all networking and computer systems within the company.",
+        "Used hands-on problem-solving skills to solve complex issues related to repairs and preventative maintenance.",
+        "Conducted regular inspections to maintain safety and regulation compliance.",
+        "Achieve Universal 608 certification."
+      ]
+    },
+    {
+      "company": "Kitchen Manager",
+      "location": null,
+      "startDate": "09/2014",
+      "endDate": "09/2020",
+      "title": "Kitchen Manager",
+      "duties": [
+        "Led hiring, training and process improvement for a team of over 30 employees.",
+        "Increased sales in store by over 10% year over year by providing exceptional customer service, maintaining a clean safe store and treating both customers and employees with respect and recognition.",
+        "Developed cost saving measures by conducting regular inventory counts, training and order control."
+      ]
+    }
+  ]
+}
