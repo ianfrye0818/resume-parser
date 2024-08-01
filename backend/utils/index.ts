@@ -3,16 +3,16 @@ import * as path from 'path';
 import * as fs from 'fs';
 import mammoth from 'mammoth';
 import pdfParse from 'pdf-parse';
-import { Resume } from '../types';
 
 const genAi = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
 const model = genAi.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
 export async function parseResumeToJson(resumeText: string) {
-  const cleanedResume = resumeText.replace(/[^a-zA-Z0-9\s]/g, '');
+  const cleanedDocument = resumeText.replace(/[^a-zA-Z0-9\s]/g, '');
 
   const prompt = `
-    is the following a resume, if not - please return the text 'not a resume';
+    does the document below look like it's a resume, if not - please return only the text 'not a resume';
+    otherwise,
     if it is a resume, can you please parse it into a json object with the following format do not include any special characters or formatting:
         {
           name: string;
@@ -31,20 +31,23 @@ export async function parseResumeToJson(resumeText: string) {
 
 
     Please clean up any grammatical errors and ensure that the resume and summary sound professional.
-  ${cleanedResume}
+  ${cleanedDocument}
     `;
 
   const response = await model.generateContent([prompt]);
+
   const responseText = response.response.text();
+
+  if (responseText.includes('not a resume')) {
+    throw new Error('Not a resume!');
+  }
 
   const cleanedResponse = cleanJsonString(responseText);
 
   const parsedJson = JSON.parse(cleanedResponse);
 
-  if (Object.values(parsedJson).some((value) => value === 'not a resume')) {
-    throw new Error('Not a resume!');
-  }
-
+  parsedJson.todaysDate = getFormattedDate();
+  checkIfValidresume(parsedJson);
   return parsedJson;
 }
 
@@ -66,7 +69,27 @@ export async function collectResumeText(filePath: string) {
   return parseResumeToJson(data);
 }
 
-function cleanJsonString(jsonString: string) {
-  // Remove unwanted characters or formatting
-  return jsonString.replace(/```json|```/g, '').trim();
+export function cleanJsonString(jsonString: string) {
+  return jsonString.replace(/```json|```/g, '').replace(/undefined|null/g, '""');
+}
+
+export function getFormattedDate() {
+  const now = new Date();
+  const month = now.getMonth() + 1;
+  const day = now.getDate();
+  const year = now.getFullYear().toString().slice(-2);
+
+  return `${month}/${day}/${year}`;
+}
+
+export function checkIfValidresume(parsedJson: any) {
+  if (
+    !parsedJson.name ||
+    !parsedJson.summary ||
+    !parsedJson.skills ||
+    !parsedJson.education ||
+    !parsedJson.workHistory
+  ) {
+    throw new Error('Not a resume!');
+  }
 }
